@@ -1,0 +1,248 @@
+/* Copyright 2018 Fox Council */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+      to { opacity: 0; }
+}
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    background-color: #121212;
+    color: #EFEFEF;
+    font-family: Consolas, 'Courier New', Courier, monospace;
+}
+
+.center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.unloaded {
+    opacity: 0;
+}
+
+.loaded {
+    animation: fadeIn 1s;
+}
+
+div#videoCountDisplay {
+    position: absolute;
+    
+    top: 0;
+    left: calc(50% - 160px);
+
+    width: 320px;
+
+    text-align: center;
+
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    background-color: green;
+}
+
+div#videoCountDisplay p {
+    margin: .1rem;
+    font-size: 1.4rem;
+}
+
+div#videoCountDisplay h5 {
+    margin: 0;
+    color: black;
+}
+
+div#titleBar {
+    position: relative;
+}
+
+div#titleBar #searchBar {
+    float: right;
+
+    width: 300px;
+    height: 50px;
+
+    background: #2b303b;
+    
+    border: none;
+
+    font-size: 1.3rem;
+    font-family: Consolas, 'Courier New', Courier, monospace;
+    
+    color: #FEFEFE;
+    
+    padding-left: 45px;
+    margin-top: -8px;
+    
+    border-radius: 5px;
+}
+
+div#titleBar .icon {
+    position: absolute;
+    top: 50%;
+    margin-left: calc(100% - 300px - 12px - 17px);
+    margin-top: 10px;
+    z-index: 1;
+    color: #4f5b66;
+}
+
+#list {
+    border: 1px solid limegreen;
+    text-align: center;
+    padding-top: .5rem;
+}
+
+#list h2 {
+    border: 3px double limegreen;
+    margin: 3rem;
+    padding: 3rem;
+}
+
+#list .card {
+    display: inline-block;
+
+    width: 640px;
+    height: 480px;
+
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+
+    border: 3px double greenyellow;
+
+    white-space: nowrap;
+}
+
+#list .card .title {
+    position: absolute;
+    width: calc(640px - (.3rem * 2));
+    padding: .3rem;
+    color: #AAA;
+    background-color: rgba(1, 1, 1, .3);
+}
+
+#list .card.hover .title {
+    color: #FFF;
+    background-color: rgba(1, 1, 1, .8);
+}
+
+#list .card .controls {
+    position: absolute;
+
+    color: darkgreen;
+    
+    width: calc(640px - (.3rem * 2));
+
+    padding: .3rem .6rem .3rem;
+
+    text-align: left;
+
+    z-index: 2;
+}
+
+#list .card .controls-right {
+    cursor: pointer;
+    margin-left: 610px;
+}
+
+#list .card.hover .controls,
+#list .card.playing .controls {
+    color: limegreen;
+}
+
+#list .card .runtime {
+    position: absolute;
+    
+    margin-left: 6px;
+    margin-top: 30px;
+
+    padding: .2rem;
+
+    color: #AAA;
+
+    background-color: rgba(1, 1, 1, .3);
+
+    border-radius: .2rem;
+}
+
+#list .card.hover .runtime {
+    color: #FFF;
+    background-color: rgba(1, 1, 1, .9);
+}
+
+#list .card .desc {
+    display: none;
+    position: absolute;
+
+    background-color: rgba(1, 1, 1, .7);
+    border-top: 1px solid white;
+
+    width: calc(640px - (.325rem * 2));
+    height: 200px;
+
+    padding: .3rem;
+    margin-top: 269px;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    word-wrap: normal;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+
+    text-align: left;
+}
+
+#list .card.hover .desc,
+#list .card.playing.hover.paused .desc {
+    display: block;
+    animation: fadeIn 1s;
+}
+
+#list .card.playing.hover .desc {
+    display: none;
+    animation: fadeOut 1s;
+}
+
+#list .card.hover .desc::-webkit-scrollbar-track
+{
+	border: 1px solid white;
+	background-color: rgba(1, 1, 1, .7);
+}
+
+#list .card.hover .desc::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: rgba(1, 1, 1, .7);
+}
+
+#list .card.hover .desc::-webkit-scrollbar-thumb
+{
+	background-color: #00EE00;	
+}
+
+#list .pip {
+    position: fixed;
+
+    bottom: 10px;
+    right: 10px;
+
+    width: 320px;
+    height: 240px;
+
+    z-index: 1000;
+
+    border: 2px double darkgreen;
+
+    animation: fadeIn .2s;
+}
