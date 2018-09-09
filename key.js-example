@@ -1,0 +1,3 @@
+module.exports = {
+    apiKey: '<INSERT_YOUR_YOUTUBE_KEY_HERE>'
+};
